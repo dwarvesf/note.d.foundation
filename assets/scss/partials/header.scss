@@ -1,36 +1,38 @@
-.grid {
-    .tab-header {
-        border-bottom: 1px solid var(--primary-border-color-light);
-        z-index: 50;
-        position: sticky;
-        top: 0;
-        background: var(--primary-background-color-light);
+.tab-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--primary-border-color-light);
+    z-index: 50;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: var(--primary-background-color-light);
 
-        .title {
-            grid-area: title;
-            font-size: 22px;
-            border-spacing: 20px;
-            border-right: 1px solid var(--primary-border-color-light);
-            padding-right: 16px;
-            height: 16px;
-            line-height: 16px;
-        }
-        
-        .tab-menu {
-            padding-left: 16px;
-        }
+    .title {
+        grid-area: title;
+        font-size: 22px;
+        border-spacing: 20px;
+        border-right: 1px solid var(--primary-border-color-light);
+        padding-right: 16px;
+        height: 16px;
+        line-height: 16px;
+    }
+    
+    .tab-menu {
+        flex: 1;
+        padding-left: 16px;
+    }
 
-        #docsearch {
-            grid-area: docsearch;
+    #docsearch {    
+        min-width: 100px;    
+        > button {
+            // width: 90%;
+            border-radius: 0px;
             
-            > button {
-                width: 90%;
-                border-radius: 0px;
-                
-                > span {
-                    padding-left: 12px;
-                    font-family: Inter, sans-serif;
-                }
+            > span {
+                padding-left: 12px;
+                font-family: Inter, sans-serif;
             }
         }
     }
@@ -42,7 +44,10 @@
 }
 
 .DocSearch-Button {
-   background: var(--primary-background-color-light); 
+    background: var(--primary-background-color-light); 
+    &:hover {
+        box-shadow: none; 
+    }
 }
 
 .DocSearch-Button .DocSearch-Search-Icon {
@@ -112,14 +117,12 @@ html[data-theme=dark] {
         box-shadow: 0 4px 2px -2px #151514;
     }
 
-    .grid {
-        .tab-header {
-            border-bottom: 1px solid var(--primary-border-color);
-            background: var(--primary-background-color);
+    .tab-header {
+        border-bottom: 1px solid var(--primary-border-color);
+        background: var(--primary-background-color);
 
-            .title {
-                border-right: 1px solid var(--primary-border-color);
-            }
+        .title {
+            border-right: 1px solid var(--primary-border-color);
         }
     }
 }
@@ -135,6 +138,8 @@ html[data-theme=dark] {
 
 
 .btn-theme-toggler {
+    min-width: 86px;
+    margin-right: 20px;
     display: flex;
     justify-items: center;
     justify-content: center;

@@ -65,10 +65,6 @@ video {
     max-width: 100%;
 }
 
-a,
-a:visited {
-    color: black;
-}
 
 q {
     font-size: 20px;
@@ -150,11 +146,6 @@ span {
 /* Theme */
 html[data-theme=dark] {
 
-    a,
-    a:visited {
-        color: #dadada;
-    }
-
     pre {
         font-family: monospace !important;
         background: white !important;
@@ -214,4 +205,14 @@ html[data-theme=light] {
 
 .hidden {
     display: none !important;
+}
+
+
+// hide scrollbar
+.scrollbar-hidden {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }

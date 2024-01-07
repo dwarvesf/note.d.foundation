@@ -1,16 +1,10 @@
 .graph-container {
-  // width: 100%;
-  z-index: 0;
   height: 200px;
-  position: sticky;
-  top: 57px;
-  right: 0;
-  z-index: 0;
   margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 16px;
+  padding: 16px 16px 16px 0;
 
   &.fullscreen {
     position: fixed;
@@ -47,7 +41,7 @@
 
   button {
     position: absolute;
-    top: 0;
+    top: 18px;
     right: 0;
     z-index: 1;
     background-color: transparent;
@@ -87,5 +81,6 @@ html[data-theme="dark"] {
 @media screen and (max-width: 1100px) {
   .graph-container {
     position: inherit;
+    padding: 1rem 0;
   }
 }

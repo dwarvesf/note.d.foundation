@@ -13,11 +13,19 @@
     .pagetitle {
         grid-area: pagetitle;
         margin: 0px;
+        font-size: 2.5625rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 100%;
+        letter-spacing: -0.05125rem;
     }
 
     .date {
         grid-area: date;
         color: var(--secondary-font-color-light-var2);
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 400;
     }
 
     .tags {
@@ -29,12 +37,19 @@
         justify-content: right;
 
         .tag {
-            padding: 1px 12px;
+            display: inline-flex;
+            padding: 0.125rem 0.5rem;
+            justify-content: center;
+            align-items: center;
             border-radius: 50px;
             background-color: var(--secondary-tag-color-light);
             height: fit-content;
             text-decoration: none;
-            color: var(--primary-font-color-light)
+            color: var(--primary-font-color-light);
+            font-size: 0.75rem;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 1.125rem;
         }
     }
 
@@ -42,7 +57,6 @@
         grid-area: authors;
         color: var(--secondary-font-color-light-var2);
         a {
-            color: inherit;
             padding: 0px;
         }
     }
@@ -76,10 +90,11 @@ code.button {
     line-height: 22px;
 }
 
+
 .grid {
+    margin-top: 57px;
     display: inline-grid;
     grid-template-areas:
-        "tabheader tabheader tabheader"
         "tabmenu tabmenu tabmenu"
         "nav content pagenav"
         "nav content pagenav";
@@ -87,20 +102,29 @@ code.button {
     grid-template-columns: 248px 1fr 248px;
     column-gap: var(--column-gap);
     
-    .tab-header {
-        grid-area: tabheader;
-        display: inline-grid;
-        grid-template-areas: "title tabmenu tabmenu tabmenu docsearch themetoggler";
-        grid-template-rows: 56px;
-        grid-template-columns: max-content 1fr 1fr 1fr 1fr 36px;
-        align-items: center;
-        padding-right: 20px;
-        padding-left: 20px;
-    }
-    
     .pagenav {
         grid-area: pagenav;
         justify-self: center;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 140%;
+        letter-spacing: -0.0125rem;
+        width: 100%;
+        max-width: 700px;
+        
+        div.container {
+            position: sticky;
+            top: 68px;
+            right: 0;
+            z-index: 0;
+
+            .nav-label {
+                display: block;
+                text-transform: uppercase;
+                position: relative;
+            }
+        }
     }
 }
 
@@ -117,6 +141,11 @@ main {
     overflow-wrap: break-word;
     hyphens: none;
     justify-self: left;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+    letter-spacing: -0.0125rem;
 }
 
 main ul {
@@ -134,19 +163,11 @@ main ul {
 }
 
 
-main>h2 {
-    // :first-child {
-        // padding: 0;
-        // &::before {
-        //     height: 10%;
-        //     bottom: 0%;
-        // }
-        // &:hover::before {
-        //     height: 100%;
-        // }
-    // }
-    :not(:first-child) { // fix duplicate render same link
-        display: none;
+main {
+    h2 {
+        :not(:first-child) { // fix duplicate render same link
+            display: none;
+        }
     }
 }
 
@@ -237,11 +258,7 @@ table:has(img) {
 }
 
 #TableOfContents {
-    padding-top: 24px;
-    padding-right: 24px;
-    position: sticky;
-    // graph + navbar
-    top: calc(56px + 200px);
+    padding-right: 16px;
 }
 
 #TableOfContents>ul>li>a {
@@ -274,7 +291,8 @@ table:has(img) {
 
 .notice {
     padding: 20px;
-    border: 2px solid black;
+    border: 1px solid var(--Neutral-900);
+    border-radius: 4px;
     margin-bottom: 16px;
 }
 
@@ -379,39 +397,47 @@ html[data-theme=dark] {
 
 /* Mobile */
 @media only screen and (max-width: 1100px) {
-    .grid {
-        display: inline-grid;
-        grid-template-areas:
-            "tabheader"
-            "docsearch"
-            "tabmenu"
-            "pagenav"
-            "content"
-            "nav";
-        grid-template-rows: repeat(auto-fill, minmax(0px, 1fr));
-        grid-template-columns: 1fr;
-        
-        .tab-header {
-            grid-template-areas: "tabmenu tabmenu tabmenu tabmenu docsearch themetoggler";
-            
-            .title {
-                display: none;
-            }
+    .tab-header {
+        .title {
+            display: none;
+        }
 
-            .tab-menu > .scrollable {
-                padding: 6px 0;
-            }
+        .tab-menu>.scrollable {
+            padding: 6px 0;
         }
     }
 
+    .pagenav {
+        .container {
+            padding: 1.2rem;
+        }
+    }
+
+    
+    .grid {
+        display: inline-grid;
+        grid-template-areas:
+        "docsearch"
+        "tabmenu"
+        "pagenav"
+        "content"
+        "nav";
+        grid-template-rows: repeat(auto-fill, minmax(0px, 1fr));
+        grid-template-columns: 1fr;
+    }
+    
     .note-title {
         width: 100%;
         grid-template-areas:
-            "pagetitle pagetitle"
-            "date authors"
-            "tags tags";
+        "pagetitle pagetitle"
+        "date authors"
+        "tags tags";
         grid-template-rows: repeat(auto-fill, minmax(0px, 1fr));
         grid-template-columns: max-content 1fr;
+        
+        .pagetitle {
+            font-size: 1.5rem;
+        }
 
         .tags {
             max-width: max-content;
@@ -424,10 +450,10 @@ html[data-theme=dark] {
         justify-self: center;
         width: 100%;
         max-width: 700px;
+        padding: 1.2rem;
     }
     
     #TableOfContents {
-        padding-left: 24px;
         padding-right: 24px;
     }
     
@@ -448,6 +474,10 @@ html[data-theme=dark] {
 
     #TableOfContents a {
         display: inline-block;
+    }
+
+    #TableOfContents li {
+        line-height: 24px;
     }
 }
 

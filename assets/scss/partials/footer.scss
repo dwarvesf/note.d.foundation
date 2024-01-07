@@ -9,13 +9,24 @@ footer {
     border-top: 1px solid var(--border-color-light);
     background-color: var(--secondary-background-color-light);
     z-index: 10;
-    white-space: wrap;
+    white-space: normal;
     font-size: 0.75rem;
     font-style: normal;
     font-weight: 400;
     line-height: 140%;
     letter-spacing: -0.0125rem;
     align-self: center;
+
+    .socials {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        margin-top: 16px;
+
+        a {
+            cursor: pointer;
+        }
+    }
 }
 
 footer span {

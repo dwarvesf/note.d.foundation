@@ -209,14 +209,12 @@ function renderGraph() {
           target: tag,
         })),
       );
-      console.log(`>>>nodeLinks`, nodeLinks);
     }
   }
   gNodes = uniqBy(gNodes, "id");
 
   if (!gNodes.length) {
     document.querySelector(".graph-container").classList.add("hidden");
-    document.querySelector("#TableOfContents").style.top = "56px";
     return;
   }
 

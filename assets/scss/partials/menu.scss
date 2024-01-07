@@ -9,11 +9,24 @@ nav.menu {
     overflow-y: auto;
     overflow-x: hidden;
     white-space: wrap;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
 details {
     overflow: hidden;
-    font-size: 14px;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    li > a {
+        color: var(--secondary-font-color-light-var2);
+        :visited {
+            color: var(--secondary-font-color-light-var2);
+        }
+    }
 }
 
 summary {
@@ -135,6 +148,23 @@ html[data-theme=dark] {
     hr {
         border-color: var(--secondary-background-color);
     }
+
+    details {
+        li>a {
+            color: var(--secondary-font-color-light);
+
+            :visited {
+                color: var(--secondary-font-color-light);
+            }
+        }
+    }
+
+    authors {
+        a {
+            color: var(--primary-font-color-light);
+        }
+    }
+
 }
 
 @media only screen and (max-width: 1100px) {
